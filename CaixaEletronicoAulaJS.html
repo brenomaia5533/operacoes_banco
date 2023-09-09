@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icons8-saco-de-dinheiro-16.png" type="image/x-icon">
+    <title>Toliso Bank</title>
+</head>
+<body>
+
+    <script>
+var nome = prompt("digite seu nome");
+
+alert("Olá "+ nome +" é um prazer ter você aqui");
+
+var saldo = 100.5; //Variavel Global
+
+function inicio() {
+    //ESCOPO
+    //Variavel Local
+      var escolha = parseInt(prompt('Selecione uma opção:  1.) Saldo  2.) Extrato  3.) fazer saque  4.) deposito  5.) transferencia  6.) Sair '));
+ 
+    switch (escolha) {
+        case 1: ver_saldo();
+        break
+        case 2: extrato();
+        break
+        case 3: fazer_saque();
+        break
+        case 4: fazer_deposito();
+        break
+        case 5: transferencia();
+        break
+        case 6: sair();
+    }
+
+}
+
+function ver_saldo() {
+
+    
+    var senha = parseInt(prompt("digite a senha :"));
+
+    if(senha === 3589);
+        else {  alert("senha incorreta");
+        inicio(); } 
+
+    alert('Seu saldo atual é: ' + saldo);
+    inicio();
+}
+
+function fazer_deposito() {
+
+    
+    var senha = parseInt(prompt("digite a senha :"));
+
+    if(senha === 3589);
+        else {  alert("senha incorreta");
+        fazer_deposito(); }
+
+    var deposito = parseFloat(prompt('Qual o valor para depósito?'));
+
+    // Not a Number --> Isso é um não-número?
+    if (isNaN(deposito) || deposito == 0 || deposito < 0) {
+        alert('Por favor, informe um número maior que 0');
+        fazer_deposito();
+    } else {
+        saldo += deposito;
+        //saldo = saldo + deposito;
+        ver_saldo();
+    }
+}
+
+function fazer_saque() {
+
+    
+    var senha = parseInt(prompt("digite a senha :"));
+
+    if(senha === 3589);
+        else {  alert("senha incorreta");
+        fazer_saque(); }
+
+    var saque = parseFloat(prompt('Qual o valor para saque?'));
+
+    if (isNaN(saque) || saque === '') {
+        alert('Por favor, informe um número.');
+        fazer_saque();
+    } else if (saldo < saque) {
+        alert("operação não autorizada, seu saque limite é de: "+ saldo);
+        fazer_saque();
+    } else {  
+         saldo -= saque;
+         ver_saldo();
+    }                                                                                                                //saldo = saldo - saque;
+         
+}
+
+function extrato() {
+
+    
+    var senha = parseInt(prompt("digite a senha :"));
+
+    if(senha === 3589);
+        else {  alert("senha incorreta");
+        extrato(); 
+}
+
+    let compras = ["Ferrari São Paulo: -2.800.000,00   ", "   Mercadocar: -1.800,00   ", "   Car&Vibes: -27.500,00   ", "   BTSPerformance: -17.800.00  "];
+    alert("suas ultimas transações foram:  "+  compras);
+    inicio();
+
+
+}
+function transferencia() { 
+
+    var senha = parseInt(prompt("digite a senha :"));
+
+    if(senha === 3589);
+        else {  alert("senha incorreta");
+        transferencia(); 
+}
+        
+    var valor = parseInt(prompt("Digite o valor que deseja transferir:"));
+    var conta = parseInt(prompt("Digite o número da conta que deseja transferir " + valor));
+    
+
+    if (saldo >= valor && valor > 0) {
+        saldo -= valor
+      
+        alert("Transferência realizada com sucesso.");
+        ver_saldo();
+        inicio();
+    } else { 
+        alert("Operação não autorizada, digite um valor entre 1 e   "+ saldo);
+        transferencia();
+    }
+}
+
+
+
+
+function erro() {
+    alert('Voce ira para o inicio. Por favor, informe um número entre 1 e 4.');
+    inicio();
+}
+
+function sair() {
+    var confirma = confirm('Você deseja sair?');
+    if (confirma) {
+        alert(nome + " , foi um prazer ter você por aqui!")
+        window.close();
+    } else {
+        inicio();
+    }
+}
+
+inicio();
+    
+
+    </script>
+    
+</body>
+</html>
